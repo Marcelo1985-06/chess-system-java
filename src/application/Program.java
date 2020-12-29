@@ -43,7 +43,7 @@ public class Program {
                     chessMat.replacePromotedPiece(type);
                 }
             }
-            catch (ChessException | InvalidPropertiesFormatException e) {
+            catch (ChessException e) {
                 System.out.println(e.getMessage());
                 sc.nextLine();
             }

@@ -70,8 +70,7 @@ public class ChessMatch {
         return board.piece(position).possibleMoves();
     }
 
-    public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition)
-            throws InvalidPropertiesFormatException {
+    public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
         Position source = sourcePosition.toPosition();
         Position target = targetPosition.toPosition();
         validateSourcePosition(source);
@@ -114,12 +113,12 @@ public class ChessMatch {
         return (ChessPiece)capturedPiece;
     }
 
-    public ChessPiece replacePromotedPiece(String type) throws InvalidPropertiesFormatException {
+    public ChessPiece replacePromotedPiece(String type) {
         if (promoted == null) {
             throw new IllegalStateException("There is no piece to be promoted");
         }
         if (!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
-            throw new InvalidPropertiesFormatException("Invalid type for promotion");
+            return promoted;
         }
 
         Position pos = promoted.getChessPosition().toPosition();
